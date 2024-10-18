@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.peterd.fivek"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.peterd.fivek"
@@ -16,6 +16,7 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
     }
 
@@ -57,7 +58,10 @@ dependencies {
     implementation(libs.androidx.compose.foundation)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.core.splashscreen)
+    implementation(libs.androidx.material3)
     testImplementation(libs.testng)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
