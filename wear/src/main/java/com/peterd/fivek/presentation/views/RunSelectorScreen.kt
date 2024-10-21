@@ -7,15 +7,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
 import androidx.wear.compose.foundation.lazy.ScalingLazyColumn
 import androidx.wear.compose.foundation.lazy.rememberScalingLazyListState
 import androidx.wear.compose.material.OutlinedCompactButton
 import androidx.wear.compose.material.PositionIndicator
 import androidx.wear.compose.material.Scaffold
 import androidx.wear.compose.material.Text
+import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
 
 @Composable
-fun RunSelectorScreen() {
+fun RunSelectorScreen(navController: NavController) {
   val listState = rememberScalingLazyListState()
 
   Scaffold(
@@ -46,8 +48,8 @@ fun RunButton(weekIndex: Int, runIndex: Int) {
 
 @Preview(device = "id:wearos_small_round", showSystemUi = true)
 @Composable
-fun RunSelectorScreenPreview() = RunSelectorScreen()
+fun RunSelectorScreenPreview() = RunSelectorScreen(rememberSwipeDismissableNavController())
 
 @Preview(device = "id:wearos_large_round", showSystemUi = true)
 @Composable
-fun RunSelectorScreenPreviewDark() = RunSelectorScreen()
+fun RunSelectorScreenPreviewDark() = RunSelectorScreen(rememberSwipeDismissableNavController())
