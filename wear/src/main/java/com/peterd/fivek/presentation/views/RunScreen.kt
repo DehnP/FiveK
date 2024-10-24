@@ -11,18 +11,20 @@ import androidx.wear.compose.material.Button
 import androidx.wear.compose.material.Scaffold
 import androidx.wear.compose.material.Text
 import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
+import com.peterd.fivek.presentation.composables.RunDial
+import com.peterd.fivek.presentation.data.week5Run1
 
 @Composable
 fun RunScreen(weekIndex: Int, runIndex: Int, navController: NavController) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
-
         ) {
         Column(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text("Week $weekIndex Run $runIndex")
+            RunDial(workout = week5Run1)
             Button(
                 onClick = { /* TODO: GO!! */ }
             ) { Text("GO!") }

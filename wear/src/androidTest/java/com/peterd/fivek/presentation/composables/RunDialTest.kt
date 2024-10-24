@@ -6,6 +6,7 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.navigation.NavHostController
+import com.peterd.fivek.presentation.data.week5Run1
 import com.peterd.fivek.presentation.views.RunScreen
 import io.mockk.mockk
 import org.junit.Rule
@@ -19,7 +20,7 @@ class RunDialTest {
     val composeTestRule = createComposeRule()
 
     @Test
-    fun `SHOULD `() {
+    fun `SHOULD display runDial features `() {
         composeTestRule.setContent {
             RunDial(week5Run1)
         }
@@ -27,6 +28,10 @@ class RunDialTest {
         composeTestRule.onNodeWithText("Time Left")
             .assertIsDisplayed()
         composeTestRule.onNodeWithText("31:00")
+            .assertIsDisplayed()
+        composeTestRule.onNodeWithText("Warm Up")
+            .assertIsDisplayed()
+        composeTestRule.onNodeWithText("5:00")
             .assertIsDisplayed()
 
     }

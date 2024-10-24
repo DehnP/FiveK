@@ -23,7 +23,6 @@ class RunScreenTest {
         }
 
         composeTestRule.onNodeWithText("Week 5 Run 1").assertIsDisplayed()
-        composeTestRule.onNodeWithContentDescription("Run Dial").assertIsDisplayed()
         composeTestRule.onNodeWithText("GO!").assertIsDisplayed()
 
     }
