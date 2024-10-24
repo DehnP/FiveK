@@ -18,32 +18,34 @@ import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
 
 @Composable
 fun RunSelectorScreen(navController: NavController) {
-  val listState = rememberScalingLazyListState()
+    val listState = rememberScalingLazyListState()
 
-  Scaffold(
-      modifier = Modifier.fillMaxSize(), positionIndicator = { PositionIndicator(listState) }) {
+    Scaffold(
+        modifier = Modifier.fillMaxSize(), positionIndicator = { PositionIndicator(listState) }) {
         ScalingLazyColumn(modifier = Modifier.fillMaxSize(), state = listState) {
-          item { Text("My Runs") }
-          items(9) { weekIndex ->
-            Column {
-              Text("Week ${weekIndex + 1}")
-              for (runIndex in 1..3) {
-                RunButton(weekIndex, runIndex)
-              }
+            item { Text("My Runs") }
+            items(9) { weekIndex ->
+                Column {
+                    Text("Week ${weekIndex + 1}")
+                    for (runIndex in 1..3) {
+                        RunButton(weekIndex, runIndex, navController)
+                    }
+                }
             }
-          }
         }
-      }
+    }
 }
 
 @Composable
-fun RunButton(weekIndex: Int, runIndex: Int) {
-  OutlinedCompactButton(
-      modifier = Modifier.semantics { contentDescription = "Week ${weekIndex + 1}, Run $runIndex" },
-      onClick = { /* TODO: Navigate to run detail screen */ },
-  ) {
-    Text("$runIndex")
-  }
+fun RunButton(weekIndex: Int, runIndex: Int, navController: NavController) {
+    OutlinedCompactButton(
+        modifier = Modifier.semantics {
+            contentDescription = "Week ${weekIndex + 1}, Run $runIndex"
+        },
+        onClick = { navController.navigate("run_week_${weekIndex + 1}") },
+    ) {
+        Text("$runIndex")
+    }
 }
 
 @Preview(device = "id:wearos_small_round", showSystemUi = true)
@@ -52,4 +54,4 @@ fun RunSelectorScreenPreview() = RunSelectorScreen(rememberSwipeDismissableNavCo
 
 @Preview(device = "id:wearos_large_round", showSystemUi = true)
 @Composable
-fun RunSelectorScreenPreviewDark() = RunSelectorScreen(rememberSwipeDismissableNavController())
+fun RunSelectorScreenPreviewLarge() = RunSelectorScreen(rememberSwipeDismissableNavController())

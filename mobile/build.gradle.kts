@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.peterd.fivek"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.peterd.fivek"
@@ -45,5 +45,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    wearApp(project(":wear"))
+    implementation(project(":wear"))
 }
