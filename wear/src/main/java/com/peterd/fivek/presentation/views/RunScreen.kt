@@ -1,7 +1,11 @@
 package com.peterd.fivek.presentation.views
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -19,15 +23,23 @@ fun RunScreen(weekIndex: Int, runIndex: Int, navController: NavController) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         ) {
-        Column(
+        Box(
             modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally
+            contentAlignment = Alignment.Center
         ) {
-            Text("Week $weekIndex Run $runIndex")
-            RunDial(workout = week5Run1)
-            Button(
-                onClick = { /* TODO: GO!! */ }
-            ) { Text("GO!") }
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight(0.8f),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text("Week $weekIndex Run $runIndex")
+                RunDial(workout = week5Run1)
+                Button(
+                    onClick = { /* TODO: GO!! */ }
+                ) { Text("GO!") }
+            }
         }
     }
 }
