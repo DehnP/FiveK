@@ -24,37 +24,33 @@ import com.peterd.fivek.presentation.data.week5Run1
 import com.peterd.fivek.presentation.utils.formatTimeLeft
 
 @Composable
-fun RunDial(workout: Workout = week5Run1) {
-
-    var timeLeft by remember {
-        mutableLongStateOf(workout.length)
+fun RunDial(workout: Workout, elapsedTime: Long = workout.length) {
+    val timeLeft by remember {
+        mutableLongStateOf(workout.length - elapsedTime)
     }
-    Box(
-        contentAlignment = Alignment.Center
+    Column(
+        modifier = Modifier.fillMaxSize(0.75f),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
     ) {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center) {
-            Text(getCurrentSegmentType(workout, timeLeft))
-            Text(getCurrentSegmentTimeLeft(workout, timeLeft), fontSize = 16.sp)
+        Text(getCurrentSegmentType(workout, elapsedTime))
+        Text(getCurrentSegmentTimeLeft(workout, elapsedTime), fontSize = 18.sp)
 
-            Spacer(modifier = Modifier.size(12.dp))
+        Spacer(modifier = Modifier.size(12.dp))
 
-            Text("Time Left", fontSize = 10.sp)
-            Text(
-                formatTimeLeft(timeLeft),
-                fontSize = 16.sp
-            )
-        }
+        Text("Time Left", fontSize = 10.sp)
+        Text(
+            formatTimeLeft(timeLeft),
+            fontSize = 14.sp
+        )
     }
 }
 
 
 @Preview(device = "id:wearos_small_round", showSystemUi = true)
 @Composable
-fun RunDialPreview() = RunDial()
+fun RunDialPreview() = RunDial(week5Run1)
 
 @Preview(device = "id:wearos_large_round", showSystemUi = true)
 @Composable
-fun RunDialPreviewLarge() = RunDial()
+fun RunDialPreviewLarge() = RunDial(week5Run1)

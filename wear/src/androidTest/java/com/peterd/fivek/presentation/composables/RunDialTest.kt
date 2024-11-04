@@ -22,7 +22,7 @@ class RunDialTest {
     @Test
     fun `SHOULD display runDial features `() {
         composeTestRule.setContent {
-            RunDial(week5Run1)
+            RunDial(week5Run1, week5Run1.length)
         }
 
         composeTestRule.onNodeWithText("Time Left")
@@ -32,6 +32,27 @@ class RunDialTest {
         composeTestRule.onNodeWithText("Warm Up")
             .assertIsDisplayed()
         composeTestRule.onNodeWithText("5:00")
+            .assertIsDisplayed()
+
+    }
+
+    @Test
+    fun `SHOULD display correct timeLeft`() {
+        composeTestRule.setContent {
+            RunDial(week5Run1, week5Run1.length - 1000)
+        }
+
+        composeTestRule.onNodeWithText("30:59")
+            .assertIsDisplayed()
+    }
+
+    @Test
+    fun `SHOULD display Run when given specific timeLeft`() {
+        composeTestRule.setContent {
+            RunDial(week5Run1, week5Run1.length - (1000 * 60 * 5))
+        }
+
+        composeTestRule.onNodeWithText("Run")
             .assertIsDisplayed()
 
     }

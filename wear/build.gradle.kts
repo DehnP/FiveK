@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlinx-serialization")
 }
 
 android {
@@ -64,6 +65,7 @@ dependencies {
     implementation(libs.androidx.navigation.runtime.ktx)
     implementation(libs.androidx.compose.navigation)
     implementation(libs.androidx.wear.tooling.preview)
+    implementation(libs.kotlinx.serialization.json)
     testImplementation(libs.testng)
     testImplementation(libs.junit)
     androidTestImplementation(libs.junit)

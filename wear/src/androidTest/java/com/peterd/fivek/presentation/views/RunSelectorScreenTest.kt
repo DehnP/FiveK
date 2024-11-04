@@ -37,6 +37,6 @@ class RunSelectorScreenTest {
         composeTestRule.onNodeWithContentDescription("Week 1, Run 3").performClick()
 
         // Verify navigation using mockNavController
-        io.mockk.verify { mockNavController.navigate("run_week_1") } // Replace with your actual route
+        io.mockk.verify { mockNavController.navigate("week_1_run_3") } // Replace with your actual route
     }
 }

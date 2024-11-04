@@ -1,0 +1,752 @@
+[
+  {
+    "week": 1,
+    "run": 1,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 60
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 60
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 60
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 60
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 60
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 60
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 60
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "week": 1,
+    "run": 2,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 60
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 60
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 60
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 60
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 60
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 60
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 60
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "week": 1,
+    "run": 3,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 60
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 60
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 60
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 60
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 60
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 60
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 60
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 60
+      }
+    ]
+  },
+  {
+    "week": 2,
+    "run": 1,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 90
+      },
+      {
+        "type": "WALK",
+        "duration": 120
+      },
+      {
+        "type": "RUN",
+        "duration": 90
+      },
+      {
+        "type": "WALK",
+        "duration": 120
+      },
+      {
+        "type": "RUN",
+        "duration": 90
+      },
+      {
+        "type": "WALK",
+        "duration": 120
+      },
+      {
+        "type": "RUN",
+        "duration": 90
+      },
+      {
+        "type": "WALK",
+        "duration": 120
+      },
+      {
+        "type": "RUN",
+        "duration": 90
+      },
+      {
+        "type": "WALK",
+        "duration": 120
+      },
+      {
+        "type": "RUN",
+        "duration": 90
+      }
+    ]
+  },
+  {
+    "week": 2,
+    "run": 2,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 90
+      },
+      {
+        "type": "WALK",
+        "duration": 120
+      },
+      {
+        "type": "RUN",
+        "duration": 90
+      },
+      {
+        "type": "WALK",
+        "duration": 120
+      },
+      {
+        "type": "RUN",
+        "duration": 90
+      },
+      {
+        "type": "WALK",
+        "duration": 120
+      },
+      {
+        "type": "RUN",
+        "duration": 90
+      },
+      {
+        "type": "WALK",
+        "duration": 120
+      },
+      {
+        "type": "RUN",
+        "duration": 90
+      },
+      {
+        "type": "WALK",
+        "duration": 120
+      },
+      {
+        "type": "RUN",
+        "duration": 90
+      }
+    ]
+  },
+  {
+    "week": 2,
+    "run": 3,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 90
+      },
+      {
+        "type": "WALK",
+        "duration": 120
+      },
+      {
+        "type": "RUN",
+        "duration": 90
+      },
+      {
+        "type": "WALK",
+        "duration": 120
+      },
+      {
+        "type": "RUN",
+        "duration": 90
+      },
+      {
+        "type": "WALK",
+        "duration": 120
+      },
+      {
+        "type": "RUN",
+        "duration": 90
+      },
+      {
+        "type": "WALK",
+        "duration": 120
+      },
+      {
+        "type": "RUN",
+        "duration": 90
+      },
+      {
+        "type": "WALK",
+        "duration": 120
+      },
+      {
+        "type": "RUN",
+        "duration": 90
+      }
+    ]
+  },
+  {
+    "week": 3,
+    "run": 1,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 90
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 180
+      },
+      {
+        "type": "WALK",
+        "duration": 180
+      },
+      {
+        "type": "RUN",
+        "duration": 90
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 180
+      }
+    ]
+  },
+  {
+    "week": 3,
+    "run": 2,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 90
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 180
+      },
+      {
+        "type": "WALK",
+        "duration": 180
+      },
+      {
+        "type": "RUN",
+        "duration": 90
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 180
+      }
+    ]
+  },
+  {
+    "week": 3,
+    "run": 3,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 90
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 180
+      },
+      {
+        "type": "WALK",
+        "duration": 180
+      },
+      {
+        "type": "RUN",
+        "duration": 90
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 180
+      }
+    ]
+  },
+  {
+    "week": 4,
+    "run": 1,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 180
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 300
+      },
+      {
+        "type": "WALK",
+        "duration": 150
+      },
+      {
+        "type": "RUN",
+        "duration": 180
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "week": 4,
+    "run": 2,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 180
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 300
+      },
+      {
+        "type": "WALK",
+        "duration": 150
+      },
+      {
+        "type": "RUN",
+        "duration": 180
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "week": 4,
+    "run": 3,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 180
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 300
+      },
+      {
+        "type": "WALK",
+        "duration": 150
+      },
+      {
+        "type": "RUN",
+        "duration": 180
+      },
+      {
+        "type": "WALK",
+        "duration": 90
+      },
+      {
+        "type": "RUN",
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "week": 5,
+    "run": 1,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 300
+      },
+      {
+        "type": "WALK",
+        "duration": 180
+      },
+      {
+        "type": "RUN",
+        "duration": 300
+      },
+      {
+        "type": "WALK",
+        "duration": 180
+      },
+      {
+        "type": "RUN",
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "week": 5,
+    "run": 2,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 680
+      },
+      {
+        "type": "WALK",
+        "duration": 300
+      },
+      {
+        "type": "RUN",
+        "duration": 680
+      }
+    ]
+  },
+  {
+    "week": 5,
+    "run": 3,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 1200
+      }
+    ]
+  },
+  {
+    "week": 6,
+    "run": 1,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 300
+      },
+      {
+        "type": "WALK",
+        "duration": 180
+      },
+      {
+        "type": "RUN",
+        "duration": 680
+      },
+      {
+        "type": "WALK",
+        "duration": 180
+      },
+      {
+        "type": "RUN",
+        "duration": 300
+      }
+    ]
+  },
+  {
+    "week": 6,
+    "run": 2,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 600
+      },
+      {
+        "type": "WALK",
+        "duration": 180
+      },
+      {
+        "type": "RUN",
+        "duration": 600
+      }
+    ]
+  },
+  {
+    "week": 6,
+    "run": 3,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 1500
+      }
+    ]
+  },
+  {
+    "week": 7,
+    "run": 1,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 1500
+      }
+    ]
+  },
+  {
+    "week": 7,
+    "run": 2,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 1500
+      }
+    ]
+  },
+  {
+    "week": 7,
+    "run": 3,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 1500
+      }
+    ]
+  },
+  {
+    "week": 8,
+    "run": 1,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 1680
+      }
+    ]
+  },
+  {
+    "week": 8,
+    "run": 2,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 1680
+      }
+    ]
+  },
+  {
+    "week": 8,
+    "run": 3,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 1680
+      }
+    ]
+  },
+  {
+    "week": 9,
+    "run": 1,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 1800
+      }
+    ]
+  },
+  {
+    "week": 9,
+    "run": 2,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 1800
+      }
+    ]
+  },
+  {
+    "week": 9,
+    "run": 3,
+    "segments": [
+      {
+        "type": "RUN",
+        "duration": 1800
+      }
+    ]
+  }
+]

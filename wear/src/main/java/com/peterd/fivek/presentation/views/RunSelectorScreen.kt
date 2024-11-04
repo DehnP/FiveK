@@ -42,7 +42,7 @@ fun RunButton(weekIndex: Int, runIndex: Int, navController: NavController) {
         modifier = Modifier.semantics {
             contentDescription = "Week ${weekIndex + 1}, Run $runIndex"
         },
-        onClick = { navController.navigate("run_week_${weekIndex + 1}") },
+        onClick = { navController.navigate("week_${weekIndex + 1}_run_$runIndex") },
     ) {
         Text("$runIndex")
     }

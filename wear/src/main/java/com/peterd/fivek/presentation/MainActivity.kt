@@ -12,16 +12,28 @@ import androidx.activity.compose.setContent
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.wear.compose.navigation.SwipeDismissableNavHost
+import androidx.wear.compose.navigation.composable
 import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
 import com.peterd.fivek.presentation.theme.FiveKTheme
 import com.peterd.fivek.presentation.views.RunSelectorScreen
 import androidx.wear.tooling.preview.devices.WearDevices.SMALL_ROUND
+import com.peterd.fivek.presentation.data.WorkoutData
+import com.peterd.fivek.presentation.data.loadWorkoutDataFromResources
+import com.peterd.fivek.presentation.views.RunScreen
+import kotlinx.serialization.Serializable
 
 class MainActivity : ComponentActivity() {
+    companion object {
+        lateinit var workoutsData: List<WorkoutData>
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
 
         super.onCreate(savedInstanceState)
+
+        workoutsData = loadWorkoutDataFromResources(this)
 
         setTheme(android.R.style.Theme_DeviceDefault)
 
@@ -33,8 +45,26 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun WearApp() {
+    val navController = rememberSwipeDismissableNavController()
     FiveKTheme {
-        RunSelectorScreen(navController = rememberSwipeDismissableNavController())
+        SwipeDismissableNavHost(
+            navController = navController,
+            startDestination = "run_selector"
+        ) {
+
+            composable("run_selector") {
+                RunSelectorScreen(navController = navController)
+            }
+            composable("week_{weekIndex}_run_{runIndex}") { backStackEntry ->
+                val weekIndex = backStackEntry.arguments?.getString("weekIndex")
+                val runIndex = backStackEntry.arguments?.getString("runIndex")
+                RunScreen(
+                    weekIndex = weekIndex!!.toInt(),
+                    runIndex = runIndex!!.toInt(),
+                    navController = navController
+                )
+            }
+        }
     }
 }
 
