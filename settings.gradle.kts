@@ -20,6 +20,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Five K"
-include(":mobile")
 include(":wear")
  

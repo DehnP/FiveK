@@ -1,6 +1,6 @@
 [versions]
 agp = "8.7.1"
-kotlin = "1.9.0"
+kotlin = "2.0.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -10,21 +10,21 @@ playServicesWearable = "18.2.0"
 material = "1.12.0"
 activity = "1.9.2"
 constraintlayout = "2.1.4"
-composeBom = "2024.10.00"
+composeBom = "2024.11.00"
 composeMaterial = "1.4.0"
 composeFoundation = "1.4.0"
 activityCompose = "1.9.3"
 coreSplashscreen = "1.0.1"
 testng = "7.10.2"
-material3 = "1.4.0-alpha02"
-navigationRuntimeKtx = "2.8.3"
+material3 = "1.4.0-alpha04"
+navigationRuntimeKtx = "2.8.4"
 composeNavigation = "1.4.0"
 mockitoCore = "5.14.2"
 mockkAgent = "1.13.13"
 mockkAndroid = "1.13.13"
 wearToolingPreview = "1.0.0"
-uiTestManifest = "1.8.0-alpha04"
-uiTooling = "1.7.4"
+uiTestManifest = "1.8.0-alpha06"
+uiTooling = "1.7.5"
 kotlinxSerializationJson = "1.7.3"
 
 [libraries]
@@ -57,9 +57,9 @@ mockk-android = { group = "io.mockk", name = "mockk-android", version.ref = "moc
 androidx-wear-tooling-preview = { group = "androidx.wear", name = "wear-tooling-preview", version.ref = "wearToolingPreview" }
 ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest", version.ref = "uiTestManifest" }
 ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "uiTooling" }
-kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version = "1.5.0" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version = "1.7.3" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

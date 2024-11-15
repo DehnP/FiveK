@@ -162,10 +162,10 @@ class GetCurrentSegmentTypeTest {
     @Test
     fun `SHOULD return Done given 0 time left`() {
         val workout = week5Run1
-        val timeLeft: Long = 0
-        val expected = "Done"
+        val elapsedTime: Long = 0
+        val expected = "Warm Up"
 
-        val actual = getCurrentSegmentType(workout, timeLeft)
+        val actual = getCurrentSegmentType(workout, elapsedTime)
 
         assertEquals(expected, actual)
     }
@@ -173,10 +173,10 @@ class GetCurrentSegmentTypeTest {
     @Test
     fun `SHOULD return Cool Down given 2 minutes left`() {
         val workout = week5Run1
-        val timeLeft: Long = 1 * 60 * 1000
+        val elapsedTime = week5Run1.length - 1000L
         val expected = "Cool Down"
 
-        val actual = getCurrentSegmentType(workout, timeLeft)
+        val actual = getCurrentSegmentType(workout, elapsedTime)
 
         assertEquals(expected, actual)
     }
@@ -184,10 +184,10 @@ class GetCurrentSegmentTypeTest {
     @Test
     fun `SHOULD return Warm Up given Full time left`() {
         val workout = week5Run1
-        val timeLeft: Long = week5Run1.length
+        val elapsedTime: Long = 0
         val expected = "Warm Up"
 
-        val actual = getCurrentSegmentType(workout, timeLeft)
+        val actual = getCurrentSegmentType(workout, elapsedTime)
 
         assertEquals(expected, actual)
     }
@@ -195,10 +195,10 @@ class GetCurrentSegmentTypeTest {
     @Test
     fun `SHOULD return Run given 26 minutes left`() {
         val workout = week5Run1
-        val timeLeft: Long = 26 * 60 * 1000
+        val elapsedTime: Long = 6 * 60 * 1000
         val expected = "Run"
 
-        val actual = getCurrentSegmentType(workout, timeLeft)
+        val actual = getCurrentSegmentType(workout, elapsedTime)
 
         assertEquals(expected, actual)
     }
@@ -206,10 +206,10 @@ class GetCurrentSegmentTypeTest {
     @Test
     fun `SHOULD return Walk given 11 minutes left`() {
         val workout = week5Run1
-        val timeLeft: Long = 11 * 60 * 1000
+        val elapsedTime: Long = 11 * 60 * 1000
         val expected = "Walk"
 
-        val actual = getCurrentSegmentType(workout, timeLeft)
+        val actual = getCurrentSegmentType(workout, elapsedTime)
 
         assertEquals(expected, actual)
     }
