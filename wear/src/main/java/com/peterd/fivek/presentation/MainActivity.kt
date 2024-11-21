@@ -18,10 +18,10 @@ import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
 import com.peterd.fivek.presentation.theme.FiveKTheme
 import com.peterd.fivek.presentation.views.RunSelectorScreen
 import androidx.wear.tooling.preview.devices.WearDevices.SMALL_ROUND
+import com.peterd.fivek.presentation.MainActivity.Companion.workoutsData
 import com.peterd.fivek.presentation.data.WorkoutData
 import com.peterd.fivek.presentation.data.loadWorkoutDataFromResources
 import com.peterd.fivek.presentation.views.RunScreen
-import kotlinx.serialization.Serializable
 
 class MainActivity : ComponentActivity() {
     companion object {
@@ -38,13 +38,13 @@ class MainActivity : ComponentActivity() {
         setTheme(android.R.style.Theme_DeviceDefault)
 
         setContent {
-            WearApp()
+            WearApp(workoutsData)
         }
     }
 }
 
 @Composable
-fun WearApp() {
+fun WearApp(workoutsData: List<WorkoutData>) {
     val navController = rememberSwipeDismissableNavController()
     FiveKTheme {
         SwipeDismissableNavHost(
@@ -61,7 +61,7 @@ fun WearApp() {
                 RunScreen(
                     weekIndex = weekIndex!!.toInt(),
                     runIndex = runIndex!!.toInt(),
-                    navController = navController
+                    workoutsData = workoutsData
                 )
             }
         }
@@ -71,5 +71,5 @@ fun WearApp() {
 @Preview(device = SMALL_ROUND, showSystemUi = true)
 @Composable
 fun DefaultPreview() {
-    WearApp()
+    WearApp(workoutsData = workoutsData)
 }

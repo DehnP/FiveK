@@ -25,9 +25,7 @@ import com.peterd.fivek.presentation.utils.formatTimeLeft
 
 @Composable
 fun RunDial(workout: Workout, elapsedTime: Long = workout.length) {
-    val timeLeft by remember {
-        mutableLongStateOf(workout.length - elapsedTime)
-    }
+
     Column(
         modifier = Modifier.fillMaxSize(0.75f),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -40,7 +38,7 @@ fun RunDial(workout: Workout, elapsedTime: Long = workout.length) {
 
         Text("Time Left", fontSize = 10.sp)
         Text(
-            formatTimeLeft(timeLeft),
+            formatTimeLeft(workout.length - elapsedTime),
             fontSize = 14.sp
         )
     }

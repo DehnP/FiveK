@@ -22,7 +22,7 @@ class RunDialTest {
     @Test
     fun `SHOULD display runDial features `() {
         composeTestRule.setContent {
-            RunDial(week5Run1, week5Run1.length)
+            RunDial(week5Run1, 0L)
         }
 
         composeTestRule.onNodeWithText("Time Left")
@@ -39,7 +39,7 @@ class RunDialTest {
     @Test
     fun `SHOULD display correct timeLeft`() {
         composeTestRule.setContent {
-            RunDial(week5Run1, week5Run1.length - 1000)
+            RunDial(week5Run1, 1000)
         }
 
         composeTestRule.onNodeWithText("30:59")

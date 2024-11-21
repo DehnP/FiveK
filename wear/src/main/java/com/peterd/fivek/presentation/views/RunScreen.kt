@@ -1,5 +1,7 @@
 package com.peterd.fivek.presentation.views
 
+import android.content.Context
+import android.os.PowerManager
 import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -16,21 +18,25 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavController
 import androidx.wear.compose.material.Button
 import androidx.wear.compose.material.Scaffold
 import androidx.wear.compose.material.Text
-import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
 import com.peterd.fivek.presentation.MainActivity
+import com.peterd.fivek.presentation.MainActivity.Companion.workoutsData
 import com.peterd.fivek.presentation.composables.RunDial
+import com.peterd.fivek.presentation.data.WorkoutData
 import com.peterd.fivek.presentation.data.getWorkoutFromIndices
-import com.peterd.fivek.presentation.data.week5Run1
 import kotlinx.coroutines.delay
 
 @Composable
-fun RunScreen(weekIndex: Int, runIndex: Int, navController: NavController) {
-    val workout = getWorkoutFromIndices(weekIndex, runIndex, MainActivity.workoutsData)
+fun RunScreen(
+    weekIndex: Int,
+    runIndex: Int,
+    workoutsData: List<WorkoutData>
+) {
+    val workout = getWorkoutFromIndices(weekIndex, runIndex, workoutsData)
     // console log workout object
     Log.d("RunScreen", "Workout: $workout")
     Log.d("RunScreen", "WorkoutLength:" + workout.length)
@@ -41,11 +47,23 @@ fun RunScreen(weekIndex: Int, runIndex: Int, navController: NavController) {
     var isRunning by remember {
         mutableStateOf(false)
     }
+    val context = LocalContext.current
+    val powerManager = context.getSystemService(Context.POWER_SERVICE) as PowerManager
+
     LaunchedEffect(key1 = isRunning) {
         if (isRunning) {
-            while (elapsedTime < timeLeft) {
-                delay(1000)
-                elapsedTime += 1000
+            val wakeLock = powerManager.newWakeLock(
+                PowerManager.PARTIAL_WAKE_LOCK,
+                "RunScreen:WorkoutActive"
+            )
+            wakeLock.acquire(30 * 60 * 1000L /*30 minutes*/)
+            try {
+                while (elapsedTime < timeLeft) {
+                    delay(1000)
+                    elapsedTime += 1000
+                }
+            } finally {
+                wakeLock.release()
             }
         }
     }
@@ -75,8 +93,8 @@ fun RunScreen(weekIndex: Int, runIndex: Int, navController: NavController) {
 
 @Preview(device = "id:wearos_small_round", showSystemUi = true)
 @Composable
-fun RunScreenPreview() = RunScreen(5, 1, rememberSwipeDismissableNavController())
+fun RunScreenPreview() = RunScreen(5, 1, workoutsData)
 
 @Preview(device = "id:wearos_large_round", showSystemUi = true)
 @Composable
-fun RunScreenPreviewLarge() = RunScreen(5, 1, rememberSwipeDismissableNavController())
+fun RunScreenPreviewLarge() = RunScreen(5, 1, workoutsData)
