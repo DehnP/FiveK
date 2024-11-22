@@ -245,6 +245,16 @@ class FormatTimeTest {
 
         assertEquals(expected, actual)
     }
+
+    @Test
+    fun `SHOULD return 26 08 given `() {
+        val time = 8 * 1000 + 26 * 60 * 1000L
+        val expected = "26:08"
+
+        val actual = formatTimeLeft(time)
+
+        assertEquals(expected, actual)
+    }
 }
 
 class GetTotalTimeLeftTest {

@@ -8,7 +8,7 @@
       <SelectionState runConfigName="mobile">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="RunDialTest">
+      <SelectionState runConfigName="All Instrumented Tests">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
       <SelectionState runConfigName="RunScreenTest">

@@ -10,6 +10,9 @@ import androidx.test.platform.app.InstrumentationRegistry
 import com.peterd.fivek.presentation.data.WorkoutData
 import com.peterd.fivek.presentation.data.loadWorkoutDataFromResources
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.test.advanceTimeBy
+import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
@@ -59,7 +62,6 @@ class RunScreenTest {
         composeTestRule.onNodeWithText("Pause").assertIsDisplayed()
     }
 
-    @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun `SHOULD start counting down when GO button is clicked`() = runTest {
         composeTestRule.setContent {
@@ -70,8 +72,7 @@ class RunScreenTest {
             )
         }
         composeTestRule.onNodeWithText("GO!").performClick()
-        delay(1000)
-        runCurrent()
+        composeTestRule.mainClock.advanceTimeBy(1500L)
         composeTestRule.onRoot().printToLog("RunScreenTest")
         composeTestRule.onNodeWithText("30:59").assertIsDisplayed()
     }

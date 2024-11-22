@@ -16,13 +16,12 @@ import androidx.wear.compose.material.Text
 import com.peterd.fivek.presentation.data.Workout
 import com.peterd.fivek.presentation.data.getCurrentSegmentTimeLeft
 import com.peterd.fivek.presentation.data.getCurrentSegmentType
+import com.peterd.fivek.presentation.data.getTotalTimeLeft
 import com.peterd.fivek.presentation.data.week5Run1
 import com.peterd.fivek.presentation.utils.formatTimeLeft
 
 @Composable
 fun RunDial(workout: Workout, elapsedTime: Long = workout.length) {
-    val timeLeft = workout.length - elapsedTime
-
     Column(
         modifier = Modifier.fillMaxSize(0.75f),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -35,7 +34,7 @@ fun RunDial(workout: Workout, elapsedTime: Long = workout.length) {
 
         Text("Time Left", fontSize = 10.sp)
         Text(
-            formatTimeLeft(timeLeft),
+            getTotalTimeLeft(workout, elapsedTime),
             fontSize = 14.sp
         )
     }
