@@ -7,6 +7,9 @@ import kotlinx.serialization.json.Json
 import java.io.InputStream
 import java.lang.String.format
 
+const val WARMUP_DURATION_MILLIS = 5 * 60 * 1000L
+const val COOLDOWN_DURATION_MILLIS = 5 * 60 * 1000L
+
 @Serializable
 data class WorkoutSegmentData(
     val type: String,
@@ -52,28 +55,26 @@ object DisplayText { // Change to object or add member declarations
     const val DONE = "Done"
 }
 
-//Stub for now
 val week5Run1 = Workout(
     segments = listOf(
-        WorkoutSegment(SegmentType.WARMUP, 5 * 60 * 1000),
+        WorkoutSegment(SegmentType.WARMUP, WARMUP_DURATION_MILLIS),
         WorkoutSegment(SegmentType.RUN, 5 * 60 * 1000),
         WorkoutSegment(SegmentType.WALK, 3 * 60 * 1000),
         WorkoutSegment(SegmentType.RUN, 5 * 60 * 1000),
         WorkoutSegment(SegmentType.WALK, 3 * 60 * 1000),
         WorkoutSegment(SegmentType.RUN, 5 * 60 * 1000),
-        WorkoutSegment(SegmentType.COOLDOWN, 5 * 60 * 1000)
+        WorkoutSegment(SegmentType.COOLDOWN, COOLDOWN_DURATION_MILLIS)
     )
+)
+private val segmentTypeMap = mapOf(
+    "RUN" to SegmentType.RUN,
+    "WALK" to SegmentType.WALK
 )
 
 fun buildSegmentFromData(workoutSegmentData: WorkoutSegmentData): WorkoutSegment {
-    return WorkoutSegment(
-        type = when (workoutSegmentData.type) {
-            "RUN" -> SegmentType.RUN
-            "WALK" -> SegmentType.WALK
-            else -> throw IllegalArgumentException("Invalid segment type")
-        },
-        duration = workoutSegmentData.duration * 1000,
-    )
+    val type = segmentTypeMap[workoutSegmentData.type]
+        ?: throw IllegalArgumentException("Invalid segment type: ${workoutSegmentData.type}")
+    return WorkoutSegment(type, workoutSegmentData.duration * 1000)
 }
 
 fun buildWorkoutFromData(workoutData: WorkoutData): Workout {
@@ -81,8 +82,8 @@ fun buildWorkoutFromData(workoutData: WorkoutData): Workout {
         buildSegmentFromData(it)
     }.toMutableList()
 
-    segments.add(0, WorkoutSegment(SegmentType.WARMUP, 5 * 60 * 1000))
-    segments.add(WorkoutSegment(SegmentType.COOLDOWN, 5 * 60 * 1000))
+    segments.add(0, WorkoutSegment(SegmentType.WARMUP, WARMUP_DURATION_MILLIS))
+    segments.add(WorkoutSegment(SegmentType.COOLDOWN, COOLDOWN_DURATION_MILLIS))
 
     return Workout(
         segments
@@ -123,6 +124,32 @@ fun getCurrentSegmentType(workout: Workout, elapsedTime: Long): String {
     return DisplayText.DONE
 }
 
+fun formatTimeLeft(time: Long): String {
+    val minutes = time / (60 * 1000)
+    val seconds = (time % (60 * 1000)) / 1000
+
+    val formattedMinutes = if (minutes.toInt() == 0) "0" else minutes.toString()
+    when (seconds) {
+        0L -> return "$formattedMinutes:00"
+        in 1..9 -> return "$formattedMinutes:0$seconds"
+    }
+    val formattedSeconds = if (seconds.toInt() == 0) "00" else seconds.toString()
+
+    return "$formattedMinutes:$formattedSeconds"
+}
+
+fun getTotalTimeLeft(workout: Workout, elapsedTime: Long): String {
+    if (elapsedTime >= workout.length) {
+        return "0:00"
+    }
+    if (elapsedTime < 0) {
+        throw IllegalArgumentException("Elapsed time cannot be negative")
+    }
+    val timeLeft = workout.length - elapsedTime
+
+    return formatTimeLeft(timeLeft)
+}
+
 fun getCurrentSegmentTimeLeft(workout: Workout, elapsedTime: Long): String {
     var accumulatedSegmentTime: Long = 0
 
@@ -130,11 +157,7 @@ fun getCurrentSegmentTimeLeft(workout: Workout, elapsedTime: Long): String {
         accumulatedSegmentTime += segment.duration
         if (elapsedTime < accumulatedSegmentTime) {
             val segmentTimeLeft = accumulatedSegmentTime - elapsedTime
-            val minutes = segmentTimeLeft / (60 * 1000)
-            val seconds = (segmentTimeLeft % (60 * 1000)) / 1000
-            val formattedMinutes = if (minutes.toInt() == 0) "0" else minutes.toString()
-            val formattedSeconds = if (seconds.toInt() == 0) "00" else seconds.toString()
-            return "$formattedMinutes:$formattedSeconds"
+            return formatTimeLeft(segmentTimeLeft)
         }
     }
     return "0:00"

@@ -1,20 +1,15 @@
 package com.peterd.fivek.presentation.views
 
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.printToLog
-import androidx.navigation.NavHostController
 import androidx.test.platform.app.InstrumentationRegistry
 import com.peterd.fivek.presentation.data.WorkoutData
 import com.peterd.fivek.presentation.data.loadWorkoutDataFromResources
-import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.test.advanceTimeBy
 import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
 import org.junit.Before

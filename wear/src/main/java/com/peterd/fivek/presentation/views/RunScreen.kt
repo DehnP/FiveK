@@ -23,7 +23,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.wear.compose.material.Button
 import androidx.wear.compose.material.Scaffold
 import androidx.wear.compose.material.Text
-import com.peterd.fivek.presentation.MainActivity
 import com.peterd.fivek.presentation.MainActivity.Companion.workoutsData
 import com.peterd.fivek.presentation.composables.RunDial
 import com.peterd.fivek.presentation.data.WorkoutData
@@ -37,13 +36,11 @@ fun RunScreen(
     workoutsData: List<WorkoutData>
 ) {
     val workout = getWorkoutFromIndices(weekIndex, runIndex, workoutsData)
-    // console log workout object
     Log.d("RunScreen", "Workout: $workout")
     Log.d("RunScreen", "WorkoutLength:" + workout.length)
     var elapsedTime by remember {
         mutableLongStateOf(0)
     }
-    val timeLeft = workout.length
     var isRunning by remember {
         mutableStateOf(false)
     }
@@ -56,9 +53,9 @@ fun RunScreen(
                 PowerManager.PARTIAL_WAKE_LOCK,
                 "RunScreen:WorkoutActive"
             )
-            wakeLock.acquire(30 * 60 * 1000L /*30 minutes*/)
+            wakeLock.acquire(40 * 60 * 1000L /*40 minutes*/)
             try {
-                while (elapsedTime < timeLeft) {
+                while (elapsedTime < workout.length) {
                     delay(1000)
                     elapsedTime += 1000
                 }

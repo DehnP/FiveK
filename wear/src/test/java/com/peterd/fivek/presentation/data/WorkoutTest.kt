@@ -215,9 +215,98 @@ class GetCurrentSegmentTypeTest {
     }
 }
 
+class FormatTimeTest {
+    @Test
+    fun `SHOULD return 00 00 given 0`() {
+        val time = 0L
+        val expected = "0:00"
+
+        val actual = formatTimeLeft(time)
+
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `SHOULD return 01 00 given 60`() {
+        val time = 60 * 1000L
+        val expected = "1:00"
+
+        val actual = formatTimeLeft(time)
+
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `SHOULD return 00 06 given 60000`() {
+        val time = 6 * 1000L
+        val expected = "0:06"
+
+        val actual = formatTimeLeft(time)
+
+        assertEquals(expected, actual)
+    }
+}
+
+class GetTotalTimeLeftTest {
+    @Test
+    fun `SHOULD return 31 00 given 0 elapsed time`() {
+        val workout = week5Run1
+        val elapsedTime: Long = 0
+        val expected = "31:00"
+
+        val actual = getTotalTimeLeft(workout, elapsedTime)
+
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `SHOULD return 30 00 given 1 minute elapsed time`() {
+        val workout = week5Run1
+        val elapsedTime: Long = 60 * 1000
+        val expected = "30:00"
+
+        val actual = getTotalTimeLeft(workout, elapsedTime)
+
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `SHOULD return 0 00 given full elapsed time`() {
+        val workout = week5Run1
+        val elapsedTime: Long = workout.length
+        val expected = "0:00"
+
+        val actual = getTotalTimeLeft(workout, elapsedTime)
+
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `SHOULD return 0 00 given exceeding full elapsed time`() {
+        val workout = week5Run1
+        val elapsedTime: Long = 100 * 60 * 1000
+        val expected = "0:00"
+
+        val actual = getTotalTimeLeft(workout, elapsedTime)
+
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `SHOULD throw illegal argument exception given negative elapsed time`() {
+        val workout = week5Run1
+        val elapsedTime: Long = -1 * 60 * 1000
+
+        assertThrows(IllegalArgumentException::class.java) {
+            getTotalTimeLeft(workout, elapsedTime)
+        }
+    }
+
+}
+
 class GetCurrentSegmentTimeLeftTest {
     @Test
-    fun `SHOULD return 0 00 given 0 elapsed time`() {
+    fun `SHOULD return 5 00 given 0 elapsed time`() {
         val workout = week5Run1
         val elapsedTime: Long = 0
         val expected = "5:00"
