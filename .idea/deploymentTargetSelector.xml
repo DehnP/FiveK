@@ -11,10 +11,7 @@
       <SelectionState runConfigName="All Instrumented Tests">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="RunScreenTest">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
-      <SelectionState runConfigName="SHOULD start counting down when GO button is clicked()">
+      <SelectionState runConfigName="SHOULD vibrate correctly()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

@@ -162,3 +162,22 @@ fun getCurrentSegmentTimeLeft(workout: Workout, elapsedTime: Long): String {
     }
     return "0:00"
 }
+
+fun countElapsedSegments(workout: Workout, elapsedTime: Long): Int {
+    var accumulatedSegmentTime: Long = 0
+    var segmentCount = 0
+
+    for (segment in workout.segments) {
+        segmentCount++
+        accumulatedSegmentTime += segment.duration
+        if (elapsedTime < accumulatedSegmentTime) {
+            return segmentCount - 1
+        }
+    }
+    return segmentCount
+}
+
+fun shouldVibrate(workout: Workout, elapsedTime: Long, vibrationCount: Int): Boolean {
+    val elapsedSegments = countElapsedSegments(workout, elapsedTime)
+    return vibrationCount < elapsedSegments
+}

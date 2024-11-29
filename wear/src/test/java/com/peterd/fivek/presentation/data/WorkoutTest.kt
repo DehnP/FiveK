@@ -359,3 +359,75 @@ class GetCurrentSegmentTimeLeftTest {
         assertEquals(expected, actual)
     }
 }
+
+class CountElapsedSegmentsTest {
+    @Test
+    fun `SHOULD return 0 given 0 elapsed time`() {
+        val workout = week5Run1
+        val elapsedTime: Long = 0
+        val expected = 0
+
+        val actual = countElapsedSegments(workout, elapsedTime)
+
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `SHOULD return 1 given 6 minutes elapsed time`() {
+        val workout = week5Run1
+        val elapsedTime: Long = 6 * 60 * 1000
+        val expected = 1
+
+        val actual = countElapsedSegments(workout, elapsedTime)
+
+        assertEquals(expected, actual)
+    }
+}
+
+class ShouldVibrateTest {
+    @Test
+    fun `SHOULD NOT vibrate given 0 vibration count and not surpassed warmup time`() {
+        val workout = week5Run1
+        val elapsedTime: Long = 1000 * 60 * 4
+        val vibrationCount = 0
+        val expected = false
+
+        val actual = shouldVibrate(workout, elapsedTime, vibrationCount)
+
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `SHOULD vibrate given 0 vibration count and surpassed warmup time`() {
+        val workout = week5Run1
+        val elapsedTime: Long = 1000 * 60 * 5 + 1000 // Warmup + 1 second
+        val vibrationCount = 0
+        val expected = true
+
+        val actual = shouldVibrate(workout, elapsedTime, vibrationCount)
+
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `SHOULD NOT vibrate given 1 vibration count and surpassed warmup time`() {
+        val workout = week5Run1
+        val elapsedTime: Long = 1000 * 60 * 5 + 1000 // Warmup + 1 second
+        val vibrationCount = 1
+        val expected = false
+
+        val actual = shouldVibrate(workout, elapsedTime, vibrationCount)
+
+        assertEquals(expected, actual)
+    }
+    @Test
+    fun `SHOULD vibrate given 1 vibration count and surpassed first run segment time`() {
+        val workout = week5Run1
+        val elapsedTime: Long = 1000 * 60 * 10 + 1000 // 10 minutes + 1 second
+        val vibrationCount = 1
+        val expected = true
+        val actual = shouldVibrate(workout, elapsedTime, vibrationCount)
+
+        assertEquals(expected, actual)
+    }
+}
